@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        ** Table 기본 태그 **
+        <table> 태그 : 표를 만드는 태그로, 표 전체를 감싸는 데 사용
+        <caption> 태그 : 표의 제목이나 설명을 작성하는 태그
+        <tr> 태그 : 표의 행으로, 자식 태그로 <th> 또는 <td> 태그가 반드시 있어야 함.
+        <th> 태그 : 표의 제목 열로, 부모태그인 <tr> 태그 안에 있어야 함.
+        <td> 태그 : 표의 일반 열로, 부모태그인 <tr> 태그 안에 있어야 함.
+
+        ** Table의 구조를 지정하는 태그 **
+        <thead> 태그 : 표의 제목 열들을 묶는 그룹 태그
+        <tbody> 태그 : 표의 일반적인 데이터들을 묶는 그룹 태그
+        <tfoot> 태그 : 표의 하단 영역을 묶는 그룹 태그
+
+        ** 행이나 열을 합치는 속성 **
+        rowspan 속성 : 행을 병합하는 속성, 예) <td rowspan="2">
+        colspan 속성 : 열을 병합하는 속성, 예) <td colspan="2">
+
+        ** 열을 묶어 주는 태그 **
+        <colgroup> 태그 : 열의 그룹을 정의하여, 해당 열에 대한 스타일이나 속성 등을 그룹화 할 수 있는 태그
+        <col> 태그 : <colgroup> 태그의 자식으로 열 단위로 나눌 수 있는 태그
+    -->
+    <table>
+        <caption>테스트</caption>
+        <tr>
+            <th>1번</th>
+            <th>2번</th>
+        </tr>
+        <tr>
+            <td>3번</td>
+            <td>4번</td>
+        </tr>
+    </table>
+
+    <table>
+        <caption>성적표</caption>
+        <colgroup>
+            <col>
+            <col>
+            <col>
+            <col style="background-color: yellow;">
+            <col>
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th>반</th>
+                <th>이름</th>
+                <th>국어</th>
+                <th>영어</th>
+                <th>수학</th>
+                <th>과학</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">1반</td>
+                <td>홍길동</td>
+                <td>90점</td>
+                <td>80점</td>
+                <td>50점</td>
+                <td>60점</td>
+            </tr>
+            <tr>
+                <!-- <td>1반</td> -->
+                <td>김영희</td>
+                <td>50점</td>
+                <td>60점</td>
+                <td>90점</td>
+                <td>80점</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="2">평균</th>
+                <!-- <td></td> -->
+                <td>70점</td>
+                <td>70점</td>
+                <td>70점</td>
+                <td>70점</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
