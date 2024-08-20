@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        <form> 태그 : 정보를 제출하기 위해 범위를 지정하는 역할
+
+        <label> 태그 : 입력받는 필드를 설명할 때 사용
+            <label> 태그 하위에 <input> 태그를 위치시킬 수 있고,
+            id와 for 속성을 사용하여 <input> 태그와 연결지을 수 있음.
+
+        <input> 태그 : 데이터를 입력 받을 수 있는 태그
+            ** type 속성을 통해 다양한 방법으로 데이터를 받기 **
+                -text : 일반적인 텍스트를 입력할 수 있는 속성값
+                -password : 비밀번호를 입력할 수 있는 속성값, 입력한 값이 보이지 않도록 처리
+                -search : 검색할 때 입력하는 속성값
+                -url : URL주소를 입력할 수 있고 형식 체크를 해주는 속성값
+                -email : 이메일을 입력할 수 있고 형식 체크를 해주는 속성값
+                -checkbox : 여러개의 체크박스 항목을 선택 가능하게 해주는 속성값, name 속성값을 일치시키면 하나의 그룹으로써 인식
+                -radio : 여러개의 라디오 항목 중 1개를 선택할 수 있는 속성값, name 속성값을 일치시키면 하나의 그룹으로써 인식
+                -number : 숫자를 입력하기 위한 속성값
+                -range : 슬라이드 막대를 움직여서 값을 입력받기 위한 속성값
+                -date : 날짜와 시간 데이터를 입력 받을 수 있는 속성값
+                
+                -submit : 폼에서 입력한 정보를 서버로 전송기 위한 속성값, 누르면 지정된 경로로 이동
+                -reset : <input>요소에 입력된 모든 정보를 리셋하기 위한 속성값
+                -button : 기능은 없고 오직 버튼 형태만 삽입하는 속성값
+                
+                -hidden : 화면의 폼에는 보이지 않지만 사용자가 입력을 마치면 함께 서버로 전송되는 속성값
+    -->
+    <form action="./04_2_listTag.html">
+        <fieldset>
+            <legend>로그인 정보</legend>
+            <label for="id">ID</label>
+            <input type="text" id="id" autofocus required maxlength="10" placeholder="소문자 10자이하로 작성해 주세요.">
+            <br>
+            <label for="pw">PW</label>
+            <input type="password" id="pw" required>
+        </fieldset>
+        
+        <br>
+        <input type="number" min="0" max="10">
+        <br>
+
+        <!-- email -->
+        <label for="email">E-mail</label>
+        <input type="email" id="email">
+        <br>
+
+        <!-- readonly -->
+        <input type="text" value="읽기전용" readonly>
+        <br>
+
+        <!-- check box -->
+        <input type="checkbox" name="fruit" id="banana">
+        <label for="banana">바나나</label>
+        <input type="checkbox" name="fruit" id="apple" checked disabled>
+        <label for="apple">사과</label>
+        <input type="checkbox" name="fruit" id="grape">
+        <label for="grape">포도</label>
+        <br>
+
+        <!-- radio -->
+        <input type="radio" name="foods" id="bulgoggi" checked>
+        <label for="bulgoggi">불고기</label>
+        <input type="radio" name="foods" id="hamburger">
+        <label for="hamburger">햄버거</label>
+        <input type="radio" name="foods" id="zzajang">
+        <label for="zzajang">짜장</label>
+        <br>
+
+        <!-- textarea 태그 -->
+        <textarea cols="10" rows="3" maxlength="10"></textarea>
+        <br>
+
+        <!-- select, option 태그 -->
+        <select name="poketmon">
+            <option value="0">피카츄</option>
+            <option value="1">라이츄</option>
+            <option value="2">꼬부기</option>
+        </select>
+        
+        <br><br>
+        <!-- input태그를 이용한 버튼 만드는 방법 -->
+        <input type="submit" value="로그인">
+        <input type="reset">
+        <input type="button">
+        <br><br>
+
+        <!-- button태그를 이용한 버튼 만드는 방법 -->
+        <button type="submit">로그인</button>
+        <button type="reset">초기화</button>
+        <button type="button">버튼</button>
+    </form>
+</body>
+</html>
