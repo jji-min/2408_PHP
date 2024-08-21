@@ -1,0 +1,74 @@
+/* 글자색 지정 */
+.h2_color {
+    /* 색상명으로 지정 */
+    /* color: red; */
+
+    /* 16진수로 색상 지정 */
+    /* color: #ff0000; */
+
+    /* RGB방식으로 색상 지정 */
+    /* color: rgb(255, 0, 0); */
+
+    /* RGBA 방식으로 색상 지정 */
+    /* color: rgb(255, 0, 0, 1); */
+
+    /* HSLA 방식으로 색상 지정 */
+    color: hsl(0, 100%, 50%);
+}
+
+/* 선으로 텍스트를 꾸미는 속성 */
+.td_none {
+    text-decoration: none;
+}
+.td_underline {
+    text-decoration: underline;
+}
+.td_through {
+    text-decoration: line-through;
+}
+
+/* 글자의 정렬 */
+.align_left {
+    text-align: left;
+}
+.align_right {
+    text-align: right;
+}
+.align_center {
+    text-align: center;
+}
+.center {
+    /* 중앙정렬 하는 방법 1 */
+    background-color: darkgray;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+}
+
+/* 영어 대소문자 변경 */
+.transform {
+    /* 첫글자를 대문자로 변환 */
+    /* text-transform: capitalize; */
+
+    /* 전부 대문자로 변환 */
+    /* text-transform: uppercase; */
+
+    /* 전부 소문자로 변환 */
+    text-transform: lowercase;
+}
+
+/* 자간 */
+.letter_spacing {
+    letter-spacing: 10px;
+}
+
+/* 단어 간의 간격 */
+.word_spacing {
+    word-spacing: 20px;
+}
+
+/* 그림자 효과 */
+.shadow {
+    /* 가로위치 세로위치 그림자 크기 색상 */
+    text-shadow: 5px 5px 5px #ff0000;
+}

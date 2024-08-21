@@ -1,0 +1,19 @@
+#test1 {
+    color: skyblue;
+}
+/* ----------------------- */
+#id-h2 {
+    color: aqua;
+}
+
+.class-h2 {
+    color: blue;
+}
+
+h2 {
+    color: orange !important;
+}
+
+h2 {
+    color: red;
+}
