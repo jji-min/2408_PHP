@@ -1,0 +1,58 @@
+div {
+    border: 1px solid #000;
+    width: 400px;
+}
+/* 
+    margin 속성 : 외부 여백을 지정
+        > 1개 지정 : 4방향 지정
+        > 2개 지정 : 첫번째 값은 위아래, 두번째 값은 좌우
+        > 3개 지정 : 위 -> 좌우 -> 아래
+        > 4개 지정 : 위 -> 우 -> 아래 -> 좌
+
+    margin-top, margin-bottom, margin-right, margin-left 속성을 사용하여
+    각각 지정 가능
+
+    마진 중첩
+        HTML 요소를 세로로 배치할 경우 margin과 margin이 만날 때,
+        margin 값이 큰 쪽으로 겹쳐지는 현상
+        (가로로 배치할 경우는 상관없음.)
+*/
+h1, p {
+    border: 1px solid #000;
+    width: 150px;
+    margin: 10px auto;
+}
+
+/* 
+    padding 속성 : 내부 여백을 지정
+        > 1개 지정 : 4방향 지정
+        > 2개 지정 : 첫번째 값은 위아래, 두번째 값은 좌우
+        > 3개 지정 : 위 -> 좌우 -> 아래
+        > 4개 지정 : 위 -> 우 -> 아래 -> 좌
+
+    padding-top, padding-bottom, padding-right, padding-left 속성을 사용하여
+    각각 지정 가능
+*/
+
+.div-2 {
+    padding: 50px;
+}
+
+/* 
+    box-shadow : 박스 모델에 그림자 효과를 줌
+        속성값 : 수평거리, 수직거리, 흐림정도, 번짐정도, 색상, (inset)
+            참조) inset은 설정시 안쪽으로 그림자가 생김
+*/
+.div-3, .div-4 {
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+}
+
+.div-3 {
+    box-shadow: 10px 10px 10px 1px #000;
+}
+
+.div-4 {
+    box-shadow: 10px 10px 10px 10px #000 inset;
+}

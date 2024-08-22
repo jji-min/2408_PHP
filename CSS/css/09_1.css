@@ -1,0 +1,18 @@
+/* 
+    <배경색과 범위 지정>
+        background-color : HTML 요소의 배경 색을 지정
+
+        background-clip : HTML 요소의 배경 색 적용 범위 지정
+            ** 속성 값 **
+            - border-box : 테두리까지 적용(기본값)
+            - padding-box : 패딩범위까지 적용
+            - content-box : 콘텐츠 부분에만 적용
+*/
+div {
+    background-color: cadetblue;
+    border: 10px dotted #000;
+    width: 150px;
+    height: 150px;
+    padding: 30px;
+    background-clip: content-box;
+}

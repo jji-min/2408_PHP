@@ -1,0 +1,41 @@
+/* display 속성 : HTML 요소를 어떻게 표시할지를 지정 */
+
+/* 
+    none :
+        요소를 보이지 않게 설정
+        영역도 차지하지 않음
+*/
+
+.none {
+    display: none;
+}
+
+/* 
+    block :
+        기본적으로 가로 영역 모두 채우며, block 요소 다음에 등장하는 태그는 줄바꿈 된 것처럼 보임
+        width, height 속성 지정할 수 있음
+        div, p, h 태그 등이 이에 해당
+*/
+.block {
+    display: block;
+}
+
+/*
+    inline :
+        컨텐츠만큼 영역 차지
+        block과 달리 줄 바꿈 되지 않고, width와 height 지정할 수 없음
+*/
+.inline {
+    display: inline;
+}
+
+/* 
+    inline-block :
+        block과 inline의 중간 형태, inline인데 내부는 block처럼 표시
+        inline처럼 컨텐츠만큼의 영역을 차지하며 가로로 배치되지만,
+        block처럼 내부 속성인 width, height 등과 같은 값 변경 가능
+*/
+.inline-block {
+    display: inline-block;
+    width: 100px;
+}

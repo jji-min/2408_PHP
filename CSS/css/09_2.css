@@ -1,0 +1,38 @@
+.div-img {
+    width: 200px;
+    height: 200px;
+    
+    background-image: url('../img/cat.jfif');
+    
+    /* content가 넘칠 때 스크롤 생성
+    overflow: scroll; */
+
+    /* 
+        배경 이미지 크기 설정
+            background-size : 배경 이미지의 크기 설정
+            ** 속성 값 **
+                - auto : 원본 크기 유지(기본값)
+                - contain : 요소 안에 배경 이미지가 다 들어오도록 확대 및 축소
+                - cover : 요소를 모두 덮도록 이미 확대 및 축소
+                - px, em, rem : 하나의 값을 주어 너비 지정하고, 너비에 맞는 높이 자동 계산
+                - % : 이미지의 비율에 맞도록 조절    
+    */
+    background-size: cover;
+
+    /* 
+        background-position : 배경 이미지의 초기 위치 설정
+            ** 속성 값 **
+            - 키워드 : top, left, right, bottom, center
+            - 퍼센티지 : 25% 75%
+            - Edge offsets : bottom 30px right 50px
+    */
+    background-position: center;
+}
+
+.div-repeat {
+    width: 200px;
+    height: 200px;
+    background-image: url('../img/icon_search.png');
+
+    background-repeat: round;
+}
