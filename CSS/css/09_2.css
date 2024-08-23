@@ -4,8 +4,8 @@
     
     background-image: url('../img/cat.jfif');
     
-    /* content가 넘칠 때 스크롤 생성
-    overflow: scroll; */
+    /* content가 넘칠 때 스크롤 생성 */
+    overflow: scroll;
 
     /* 
         배경 이미지 크기 설정
@@ -26,7 +26,10 @@
             - 퍼센티지 : 25% 75%
             - Edge offsets : bottom 30px right 50px
     */
-    background-position: center;
+    /* background-position: center; */
+
+    /* background-attachment : 스크롤이 생길 경우 배경 이미지의 고정 여부 설정 */
+    background-attachment: local;
 }
 
 .div-repeat {

@@ -1,0 +1,31 @@
+div {
+    width: 200px;
+    height: 150px;
+    border: 1px solid #000;
+    margin: 10px;
+}
+
+/* 
+    그라데이션
+        두개 이상의 색상을 점진적으로 변화시키는 것
+        기본적으로 "background" 속성에 해당하는 함수를 속성 값을 주어 설정
+        선형 그라데이션
+        ** 속성 값 **
+        linear-gradient() 함수
+            키워드 : to(방향)
+*/
+.div1 {
+    background: linear-gradient(
+        0deg, blue, skyblue 80%, white
+    );
+}
+
+/* 
+    원형 그라데이션
+        키워드 : circle(원형)
+*/
+.div2 {
+    background: radial-gradient(
+        circle at 0% 50%, blue, skyblue
+    );
+}
