@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./10_tng2.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form action="">
+        <fieldset>
+            <legend>I want YOU!</legend>
+            <ul>
+                <li>
+                    <label for="name" class="type_label">이름</label>
+                    <input type="text" id="name" required>
+                    <br><br>
+                </li>
+                <li>
+                    <label for="number" class="type_label">나이</label>
+                    <input type="number" id="number" required min="20">
+                    <br><br>
+                </li>
+                <li>
+                    <label for="man" class="type_label">성별</label>
+                    <input type="radio" name="gender" id="man" required>
+                    <label for="man">남자</label>
+                    <input type="radio" name="gender" id="woman">
+                    <label for="woman">여자</label>
+                    <br><br>
+                </li>
+                <li>
+                    <label for="memo" class="memo_label">요청사항</label>
+                    <textarea name="memo" id="memo" cols="30" rows="10" placeholder="요청 사항 입력"></textarea>
+                </li>
+            </ul>  
+            <button type="submit">보내기</button>
+            <span class="check_msg">내용을 다시 한 번 확인해 주세요.</span>
+        </fieldset>
+    </form> -->
+
+    <fieldset>
+        <legend>I want YOU!</legend>
+
+        <form action="">
+            <label for="name" class="label-required">이름</label>
+            <input type="text" name="name" id="name" required>
+            <br><br>
+
+            <label for="age" class="label-required">나이</label>
+            <input type="number" name="age" id="age" required min="20">
+            <br><br>
+
+            <label for="" class="label-required">성별</label>
+            <input type="radio" class="radio-gender" name="gender" id="male" required>
+            <label for="male">남자</label>
+            <input type="radio" class="radio-gender" name="gender" id="female">
+            <label for="female">여자</label>
+            <br><br>
+
+            <label for="memo">요청사항</label>
+            <textarea name="memo" id="memo" cols="30" rows="10" placeholder="요청 사항 입력"></textarea>
+            <br><br>
+
+            <button type="submit" class="btn-send">보내기</button>
+            <p class="hide">내용을 다시 한 번 확인해 주세요.</p>
+        </form>
+    </fieldset>
+</body>
+</html>

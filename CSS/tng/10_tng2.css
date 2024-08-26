@@ -1,0 +1,96 @@
+/* * {
+    font-weight: 900;
+}
+
+fieldset {
+    background-image: url('../img/person.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 600px;
+}
+
+legend {
+    color: magenta;
+    font-size: 2rem;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.type_label::before {
+    content: '*';
+    color: #ff0000;
+}
+
+input:focus, textarea:focus {
+    border: 3px solid #ff0000;
+    outline: none;
+}
+
+input:checked + label {
+    color: #ff0000;
+}
+
+.memo_label {
+    vertical-align: top;
+}
+
+.check_msg {
+    background-color: #000;
+    color: #fff;
+    display: none;
+}
+
+button:hover + .check_msg {
+    display: inline;
+} */
+
+
+
+fieldset {
+    background-image: url('../img/person.png');
+    background-repeat: no-repeat;
+    /* background-size: 100%; */
+    background-position: center;
+}
+
+legend {
+    color: magenta;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.label-required::before {
+    content: '*';
+    color: #ff0000;
+}
+
+input, textarea {
+    background-color: transparent;
+}
+
+input:focus, textarea:focus {
+    border: 3px solid #ff0000;
+    outline: none;
+}
+
+.radio-gender:checked + label {
+    color: #ff0000;
+}
+
+#memo {
+    vertical-align: top;
+}
+
+.hide {
+    display: none;
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+}
+
+.btn-send:hover + .hide {
+    display: inline-block;
+}

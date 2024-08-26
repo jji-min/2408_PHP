@@ -1,0 +1,27 @@
+/*
+    가상요소
+        선택자에 추가하는 키워드
+        선택한 요소의 지정된 부분에 스타일 적용
+*/
+
+/* 특정 요소의 컨텐츠 앞에 다른 요소를 삽입 */
+.required::before {
+    content: '* ';
+    color: #ff0000;
+}
+
+/* 특정 요소의 컨텐츠 뒤에 다른 요소를 삽입 */
+.required::after {
+    content: '* ';
+    color: #ff0000;
+}
+
+/* 특정 요소의 첫 글자 선택 */
+p::first-letter {
+    color: #ff0000;
+}
+
+/* 특정 요소의 첫 라인 선택 */
+p::first-line {
+    color: green;
+}
