@@ -1,0 +1,22 @@
+div {
+    width: 100px;
+    height: 100px;
+}
+
+@media (max-width: 500px) {
+    div {
+        background-color: #000;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 1000px) {
+    div {
+        background-color: #ff0000;
+    }
+}
+
+@media (min-width: 1001px) {
+    div {
+        background-color: green;
+    }
+}

@@ -1,0 +1,47 @@
+.container {
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    height: 650px;
+    gap: 10px;
+    justify-content: center;
+    align-content: center;
+}
+
+.item {
+    border: 1px solid #000;
+    background-color: cornflowerblue;
+    width: 200px;
+    height: 200px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+.main-col1 {
+    width: 410px;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+}
+.footer-row2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.item56 {
+    height: 95px;
+}

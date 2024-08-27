@@ -1,0 +1,135 @@
+.item {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+    background-color: cadetblue;
+}
+
+.container-row {
+    display: flex;
+    /* 가로축으로 정렬 */
+    /* flex-direction: row; */
+
+    /* 가로축 역으로 정렬 */
+    /* flex-direction: row-reverse; */
+
+    /* 세로축 정렬 */
+    /* flex-direction: column; */
+    
+    /* 세로축 역으로 정렬 */
+    flex-direction: column-reverse;
+}
+
+.container-wrap {
+    display: flex;
+
+    /* 개행 없음 */
+    /* flex-wrap: nowrap; */
+
+    /* 너비가 모자르면 개행 */
+    flex-wrap: wrap;
+
+    /* 너비가 모자르면 개행 역순 */
+    /* flex-wrap: wrap-reverse; */
+}
+
+.container-flow {
+    display: flex;
+
+    /* flex-direction과 flex-wrap을 한번에 지정 */
+    flex-flow: row wrap;
+}
+
+.container-justify-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    /* justify-content : 주축을 기준으로 정렬 */
+
+    /* 주축의 시작점에 맞추어 배치 */
+    /* justify-content: flex-start; */
+
+    /* 주축의 끝점에 맞추어 배치 */
+    /* justify-content: flex-end; */
+
+    /* 주축의 가운데에 맞추어 배치 */
+    /* justify-content: center; */
+
+    /* 
+        주축의 시작점에 첫번째 항목을 배치하고,
+        주축의 끝점에 마지막 항목을 배치하고,
+        나머지 항목들을 적정한 간격으로 조절
+    */
+    /* justify-content: space-between; */
+
+    /* 주축에 같은 간격으로 배치 */
+    /* justify-content: space-around; */
+
+    /* 아이템 간의 간격 지정 */
+    gap: 20px;
+}
+
+.container-align-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 700px;
+    background-color: coral;
+
+    /* 교차축의 시작점에 맞춰서 배치 */
+    /* align-items: flex-start; */
+
+    /* 교차축의 끝점에 맞춰서 배치 */
+    /* align-items: flex-end; */
+
+    /* 교차축의 가운데에 맞춰서 배치 */
+    align-items: center;
+}
+
+.container-align-self {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 700px;
+    background-color: coral;
+}
+.container-align-self :nth-child(1) {
+    /* 교차축의 시작점에 맞춰서 배치 */
+    align-self: flex-start;
+}
+.container-align-self :nth-child(2) {
+    /* 교차축의 끝점에 맞춰서 배치 */
+    align-self: flex-end;
+}
+.container-align-self :nth-child(5) {
+    /* 교차축의 가운데에 맞춰서 배치 */
+    align-self: center;
+}
+
+.container-align-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 700px;
+    background-color: coral;
+
+    /* 교차축의 시작점에 맞추어 배치 */
+    /* align-content: flex-start; */
+
+    /* 교차축의 끝점에 맞추어 배치 */
+    /* align-content: flex-end; */
+
+    /* 교차축의 가운데에 맞추어 배치 */
+    /* align-content: center; */
+    
+    /* 
+        교차축의 시작점에 첫번째 항목을 배치하고,
+        교차축의 끝점에 마지막 항목을 배치하고,
+        나머지 항목들을 적정한 간격으로 조절
+    */
+    /* align-content: space-between; */
+
+    /* 교차축에 같은 간격으로 배치 */
+    align-content: space-around;
+}
