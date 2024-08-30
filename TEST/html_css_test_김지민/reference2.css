@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* flex로도 가능-mediaqueary도 사용해야함 */
+/* header {
+    background-image: url('./img/img_1.jpg');
+    color: #fff;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+header > h1 {
+    font-size: 4rem;
+    min-width: 400px;
+}
+
+.header-info {
+    max-width: 50%;
+} */
+
+
+/* common */
+button {
+    background-color: goldenrod;
+    border-radius: 10px;
+    padding: 15px;
+    color: #fff;
+    border: none;
+    font-size: 1.5rem;
+}
+
+button:hover {
+    opacity: 0.5;
+    transition: all 1.5s;
+}
+
+/* header */
+header {
+    background-image: url('./img/img_1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+}
+
+header > h1 {
+    margin: 5rem 0;
+    font-size: 4rem;
+}
+
+.header-info > p {
+    font-size: 1.5rem;
+    margin: 30px 0;
+}
+
+/* main */
+main {
+    margin-bottom: 60px;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    border: 1px solid #c9c9c9;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.card > a > button {
+    font-size: 1rem;
+    width: 100%;
+}
+
+.main-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 70%;
+    position: relative;
+}
+
+.img-title {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 900;
+    padding: 15px;
+    width: 100%;
+}
+
+/* footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #252525;
+    color: #fff;
+    width: 100vw;
+    padding: 20px;
+    text-align: center;
+}
