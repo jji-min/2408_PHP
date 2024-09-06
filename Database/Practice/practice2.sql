@@ -215,5 +215,31 @@ FROM department_managers
 ;
 
 -- 9. 현재 각 직급별 평균연봉 중 60,000,000이상인 직급의 직급명, 평균연봉(정수)를을 내림차순으로 출력해 주세요.
+SELECT 
+	titles.title
+	,CEILING(AVG(salaries.salary)) avg_sal
+FROM salaries
+	JOIN title_emps
+		ON salaries.emp_id = title_emps.emp_id
+			AND salaries.end_at IS NULL 
+			AND title_emps.end_at IS NULL 
+	JOIN titles
+		ON title_emps.title_code = titles.title_code
+GROUP BY title_emps.title_code
+HAVING
+	avg_sal >= 60000000
+ORDER BY
+	avg_sal DESC 
+;
 
 -- 10. 성별이 여자인 사원들의 직급별 사원수를 출력해 주세요.
+SELECT
+	title_emps.title_code
+	,COUNT(employees.emp_id)
+FROM employees
+	JOIN title_emps
+		ON employees.emp_id = title_emps.emp_id
+		AND title_emps.end_at IS NULL 
+		AND employees.gender = 'F'
+GROUP BY title_emps.title_code
+;
