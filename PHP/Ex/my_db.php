@@ -3,10 +3,11 @@ function my_db_conn() {
     // DB 접속 정보
     $my_host = "localhost"; // DB Host
     $my_user = "root";  // DB 계정명
+    $my_port = "3306"; // port
     $my_password = "php504"; // DB 계정 비밀번호
     $my_db_name = "dbsample";  // 접속할 DB명
     $my_charset = "utf8mb4";  // DB Charset
-    $my_dsn = "mysql:host=".$my_host.";dbname=".$my_db_name.";charset=".$my_charset;  // DSN, Data Source Name, DB 접속하기 위한 문자열
+    $my_dsn = "mysql:host=".$my_host.";port=".$my_port.";dbname=".$my_db_name.";charset=".$my_charset;  // DSN, Data Source Name, DB 접속하기 위한 문자열
 
     // PDO 옵션 설정
     $my_otp = [
