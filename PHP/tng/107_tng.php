@@ -8,8 +8,11 @@ $conn = null;
 try {
     $conn = my_db_conn();
 
+    // transaction 시작
     $conn->beginTransaction();
 
+    // ------------------------
+    // 기존 급여 수정
     // Update
     $sql =
         " UPDATE salaries "
@@ -29,12 +32,23 @@ try {
     $result_cnt = $stmt->rowCount(); // 영향받은 레코드 수 획득
 
     if(!$result_flg) {
-        throw new Exception("Update Query Error");
-    }
-    if($result_cnt !== 1) {
-        throw new Exception("Update Count Error");
+        // throw new Exception("Update Query Error");
+        throw new Exception("Update exec Error : salaries");
     }
 
+    // if($result_cnt !== 1) {
+    //     throw new Exception("Update Count Error");
+    // }
+
+    // 한번만 사용하기 때문에 보통 변수에 따로 담지 않고 바로 사용함
+    // 변수에 넣어도 메모리를 사용하긴 하지만 상관없음
+    if($stmt->rowCount() !== 1) {
+        // throw new Exception("Update Count Error");
+        throw new Exception("Update Row Count Error : salaries");
+    }
+
+    // -----------------------
+    // 새로운 급여 이력 추가
     // Insert
     $sql =
         " INSERT INTO salaries( "
@@ -58,10 +72,12 @@ try {
     $result_cnt = $stmt->rowCount(); // 영향받은 레코드 수 획득
 
     if(!$result_flg) {
-        throw new Exception("Insert Query Error");
+        // throw new Exception("Insert Query Error");
+        throw new Exception("Insert exec Error : salaries");
     }
     if($result_cnt !== 1) {
-        throw new Exception("Insert Count Error");
+        // throw new Exception("Insert Count Error");
+        throw new Exception("Insert Row Count Error : salaries");
     }
 
     // Commit
