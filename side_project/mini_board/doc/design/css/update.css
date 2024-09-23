@@ -1,0 +1,47 @@
+.box {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 900;
+}
+
+.title-box {
+    height: 50px;
+}
+
+.title-box:nth-child(1) {
+    margin-top: 40px;
+}
+
+.content-box {
+    height: 200px;
+}
+
+.box-title {
+    background-color: #6B84FF;
+    border-radius: 40px 0 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-content {
+    background-color: #fff;
+    color: #000;
+    border-radius: 0 40px 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-content > input
+,.box-content > textarea {
+    width: 90%;
+    height: 90%;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    resize: none;
+}

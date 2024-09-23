@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: '맑은고딕';
+}
+
+h1 {
+    padding: 20px;
+    text-align: center;
+    font-size: 3rem;
+    color: #2600FF;
+}
+
+button {
+    background-color: #6B84FF;
+    border-radius: 40px;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1D42FF;
+}
+
+.btn-middle {
+    width: 150px;
+    height: 40px;
+}
+
+.btn-small {
+    width: 50px;
+    height: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* main */
+main {
+    background-color: #C1D0FF;
+    padding: 15px 30px;
+    width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.main-footer {
+    margin: 40px 0;
+    text-align: center;
+}
