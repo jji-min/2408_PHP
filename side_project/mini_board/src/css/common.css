@@ -35,6 +35,11 @@ button:hover {
     height: 50px;
 }
 
+.btn-selected {
+    border: 3px solid #1100ff;
+    /* background-color: #3700ff65; */
+}
+
 a {
     text-decoration: none;
     color: #000;
