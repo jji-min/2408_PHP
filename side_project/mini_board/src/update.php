@@ -55,24 +55,33 @@ try {
         // PDO Instance
         $conn = my_db_conn();
 
+        // Transaction Start
+        $conn->beginTransaction();
+
         $arr_prepare = [
             "id" => $id
             ,"title" => $title
             ,"content" => $content
         ];
 
-        // Transaction Start
-        $conn->beginTransaction();
         my_board_update($conn, $arr_prepare);
 
+        // commit
         $conn->commit();
 
-        header("Location: /detail.php?id=$id&page=$page");
+        // detail page로 이동
+        header("Location: /detail.php?id=".$id."&page=".$page);
+        exit;   // 안써도 에러는 나지 않지만 불필요한 처리를 방지
     }
 } catch(Throwable $th) {
-    if(!is_null($conn)) {
+    if(!is_null($conn) && $conn->inTransaction()) {
         $conn->rollBack();
     }
+    // is_null($conn) -> transaction 실행안했는데 오류 났다고 rollback 할 수도 있음
+    // inTransaction() -> transaction이 시작했으면 true, 이것까지 써주는 것이 정확함
+    // 조건은 앞에서부터 체크하기 때문에 순서 주의
+    // &&를 사용하는것이 if문을 중첩시키는 것보다 가독성이 좋음
+
     require_once(MY_PATH_ERROR);
     exit;
 }
@@ -90,7 +99,7 @@ try {
 </head>
 <body>
     <?php
-        require_once(MY_PATH_ROOT."/header.php");
+        require_once(MY_PATH_ROOT."header.php");
     ?>
 
     <main>
@@ -116,7 +125,8 @@ try {
                 </div>
             </div>
             <div class="main-footer">
-                <button type="submit" class="btn-small">완료</button>
+                <button type="submit" class="btn-small">완료</button> 
+                <!-- 해당 버튼에 detail.php로 연결하는 a테그를 주면 update를 실행하지 않고 바로 detail로 넘어감, 버튼 하나에 1개의 기능만 가능 -->
                 <a href="/detail.php?id=<?php echo $result["id"] ?>&page=<?php echo $page ?>"><button type="button" class="btn-small">취소</button></a>
             </div>
         </form>

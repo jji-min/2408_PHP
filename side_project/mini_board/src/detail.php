@@ -42,7 +42,7 @@ try {
 </head>
 <body>
     <?php 
-        require_once(MY_PATH_ROOT."/header.php");
+        require_once(MY_PATH_ROOT."header.php");
     ?>
 
     <main>
@@ -72,7 +72,7 @@ try {
             <a href="/update.php?id=<?php echo $result["id"] ?>&page=<?php echo $page ?>"><button type="button" class="btn-small">수정</button></a>
             <a href="/index.php?page=<?php echo $page ?>"><button type="button" class="btn-small">취소</button></a>
             <!-- index에서 넘겨준 page값을 받음 -->
-            <a href="/delete.php"><button type="button" class="btn-small">삭제</button></a>
+            <a href="/delete.php?id=<?php echo $result["id"] ?>&page=<?php echo $page ?>"><button type="button" class="btn-small">삭제</button></a>
         </div>
     </main>
 </body>

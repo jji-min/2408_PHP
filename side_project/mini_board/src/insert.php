@@ -2,6 +2,8 @@
 require_once($_SERVER["DOCUMENT_ROOT"]."/config.php");
 require_once(MY_PATH_DB_LIB);
 
+$conn = null;
+
 // post 처리
 // $_SERVER의 REQUEST_METHOD : user가 보내온 값이 GET인지 POST인지 알수 있음
 if(strtoupper($_SERVER["REQUEST_METHOD"]) === "POST") {  // 혹시 소문자로 올 수 있으니까 처리를 해줌
@@ -46,7 +48,7 @@ if(strtoupper($_SERVER["REQUEST_METHOD"]) === "POST") {  // 혹시 소문자로 
 </head>
 <body>
     <?php 
-        require_once(MY_PATH_ROOT."/header.php");
+        require_once(MY_PATH_ROOT."header.php");
     ?>
 
     <main>

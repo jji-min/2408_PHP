@@ -21,11 +21,14 @@ function my_board_select_pagination(PDO $conn, array $arr_param) {
         ."      * "
         ." FROM "
         ."      board "
+        ." WHERE "
+        ."      deleted_at IS NULL "
         ." ORDER BY "
         ."      created_at DESC "
         ."      ,id DESC "
         ." LIMIT :list_cnt OFFSET :offset "
     ;
+    // 삭제된 데이터 제외하고 조회
 
     $stmt = $conn->prepare($sql);
     $result_flg = $stmt->execute($arr_param);
@@ -112,15 +115,18 @@ function my_board_select_id(PDO $conn, array $arr_param) {
     return $stmt->fetch();
 }
 
+/**
+ * board 테이블 update
+ */
 function my_board_update(PDO $conn, array $arr_param) {
     $sql = 
         " UPDATE board "
-        ."      SET "
-        ."          title = :title "
-        ."          ,content = :content "
-        ."          ,updated_at = NOW() "
-        ."      WHERE "
-        ."          id = :id "
+        ." SET "
+        ."      title = :title "
+        ."      ,content = :content "
+        ."      ,updated_at = NOW() "
+        ."  WHERE "
+        ."      id = :id "
     ;
 
     $stmt = $conn->prepare($sql);
@@ -128,6 +134,37 @@ function my_board_update(PDO $conn, array $arr_param) {
 
     if(!$result_flg) {
         throw new Exception("쿼리 실행 실패");
+    }
+
+    if($stmt->rowCount() !== 1) {
+        throw new Exception("Update Count 이상");  // update도 실행된 레코드 수 확인해야 함
+    }
+
+    return true;
+}
+
+/**
+ * board 테이블 레코드 삭제
+ */
+function my_board_delete_id(PDO $conn, array $arr_param) {
+    $sql = 
+    " UPDATE board "
+    ." SET "
+    ."      updated_at = NOW() "
+    ."      ,deleted_at = NOW() "
+    ." WHERE "
+    ."      id = :id "
+    ;
+
+    $stmt = $conn->prepare($sql);
+    $result_flg = $stmt->execute($arr_param);
+
+    if(!$result_flg) {
+        throw new Exception("쿼리 실행 실패");
+    }
+
+    if($stmt->rowCount() !== 1) {
+        throw new Exception("Delete Count 이상");
     }
 
     return true;
