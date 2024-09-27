@@ -1,0 +1,46 @@
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+}
+a:hover {
+    font-weight: 900;
+}
+a:visited {
+    color: #fff;
+}
+
+.start-page_background {
+    background-color: #070103;
+    width: 800px;
+    height: 500px;
+    position: relative;
+}
+
+.open_box {
+    background-color: #520F07;
+    width: 800px;
+    height: 450px;
+    position: absolute;
+    top: 0;
+}
+
+.open_btn {
+    position: absolute;
+    bottom: 10px;
+    left: 45%;
+}
+
+.open_btn:hover ~ .open_box {
+    animation: open 8s ease-in-out;
+}
+
+@keyframes open {
+    from {
+        height: 450px;
+    }
+    to {
+        height: 0;
+        border-radius: 0 0 80% 80%;
+    }
+}
