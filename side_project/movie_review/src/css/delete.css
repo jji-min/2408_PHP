@@ -1,0 +1,28 @@
+/* common.css 수정 */
+.content-box {
+    width: 300px;
+}
+
+.content-list {
+    width: 280px;
+}
+/* ------------------------ */
+
+.delete-page_coment {
+    text-align: center;
+    color: #FAF5E2;
+}
+
+.delete-page_img {
+    width: 300px;
+    height: 400px;
+}
+
+.rating {
+    display: flex;
+    justify-content: space-between;
+}
+
+.review {
+    height: 200px;
+}

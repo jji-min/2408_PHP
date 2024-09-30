@@ -34,3 +34,7 @@
 .star-group {
     margin-top: 10px;
 }
+
+.btn-selected {
+    background-color: #BA4706;
+}

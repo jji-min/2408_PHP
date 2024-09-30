@@ -1,0 +1,40 @@
+/* common.css 수정 */
+.content-box {
+    width: 400px;
+}
+
+.content-list {
+    width: 380px;
+}
+/* ---------------------- */
+
+input {
+    font-size: 0.7rem;
+}
+
+.update-page_poster {
+    width: 300px;
+}
+
+.update-page_img_btn {
+    width: 40px;
+    height: 25px;
+    font-size: 0.7rem;
+    font-weight: 100;
+}
+
+.update-page_img {
+    width: 250px;
+    height: 350px;
+    margin-top: 20px;
+}
+
+input::placeholder {
+    color: #FAF5E2;
+    opacity: 0.8;
+}
+
+textarea::placeholder {
+    color: #FAF5E2;
+    opacity: 0.8;
+}

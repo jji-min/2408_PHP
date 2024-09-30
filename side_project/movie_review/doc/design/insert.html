@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/insert.css">
+    <title>작성 페이지</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="./img/title.png" width="230px" height="60px">
+        </header>
+
+        <main>
+            <div class="list">
+                <div class="insert-page_poster">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <input type="file" name="file" id="file">
+                        <button class="btn-style insert-page_poster_btn" type="submit">OK</button>
+                    </form>
+                    <img src="./img/parasite.png" class="insert-page_poster_img">
+                </div>
+                <div class="content-box">
+                    <input type="text" class="content-list" placeholder="제목 :">
+                    <input type="text" class="content-list" placeholder="평점 : 0.0 ~ 5.0">
+                    <textarea class="content-list" name="review" id="review" placeholder="감상평 :"></textarea>
+                    <p class="content-list" style="text-align: center;"><img src="./img/barcode.png" class="content-barcode"></p>
+                </div>
+            </div>
+            <div class="main_footer">
+                <a href="./main.html"><button class="btn-style">완료</button></a>
+                <a href="./main.html"><button class="btn-style">취소</button></a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
