@@ -15,7 +15,7 @@
     display: none;
 }
 
-.box-size:hover + .img_display {
+img:hover + .img_display {
     display: block;
 }
 
@@ -25,7 +25,7 @@
     background-color: #000;
     opacity: 0.8;
     color: #fff;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

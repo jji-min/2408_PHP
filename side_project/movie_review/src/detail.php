@@ -1,5 +1,26 @@
 <?php
     require_once($_SERVER["DOCUMENT_ROOT"]."/config.php");
+    require_once(MY_PATH_DB_LIB);
+
+    $conn = null;
+    try {
+        $id = isset($_GET["id"]) ? (int)$_GET["id"] : 0;  // id 획득
+
+        if($id < 1) {
+            throw new Exception("파라미터 오류");
+        }
+
+        $conn = my_db_conn();
+
+        $arr_prepare = [
+            "id" => $id
+        ];
+
+        $result = my_reviews_select_id($conn, $arr_prepare);
+    } catch(Throwable $th) {
+        require_once(MY_PATH_ERROR);
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +41,7 @@
 
         <main>
             <div class="list">
-                <img src="./img/parasite.png" class="insert-page_img">
+                <img src="<?php echo $result["img"] ?>" class="insert-page_img">
                 
                 <div class="content-box">
                     <p class="content-list">기생충</p>
@@ -36,7 +57,7 @@
                         <p>4.0</p>
                     </div>
                     <p class="content-list review">재밋었다.</p>
-                    <p class="content-list" style="text-align: center;"><img src="./img/barcode.png" class="content-barcode"></p>
+                    <p class="content-list" style="text-align: center;"><img src="./img/basic/barcode.png" class="content-barcode"></p>
                 </div>
             </div>
             <div class="main_footer">

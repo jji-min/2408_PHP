@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container start-page">
-        <img src="./img/curtain.jpg" class="start-page_curtain">
+        <img src="./img/basic/curtain.jpg" class="start-page_curtain">
         <h1 class="start-page_title">영화가 끝나고 난 뒤...</h1>
         <a href="./main.php" class="start-page_btn">click</a>
     </div>

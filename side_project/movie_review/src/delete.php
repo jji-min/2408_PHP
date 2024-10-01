@@ -40,7 +40,7 @@
                         <p>4.0</p>
                     </div>
                     <p class="content-list review">재밋었다.</p>
-                    <p class="content-list" style="text-align: center;"><img src="./img/barcode.png" class="content-barcode"></p>
+                    <p class="content-list" style="text-align: center;"><img src="./img/basic/barcode.png" class="content-barcode"></p>
                 </div>
             </div>
             <div class="main_footer">

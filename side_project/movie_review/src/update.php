@@ -31,7 +31,7 @@
                     <input type="text" class="content-list" placeholder="기생충">
                     <input type="text" class="content-list" placeholder="5.0">
                     <textarea class="content-list" name="review" id="review" placeholder="재밋었다."></textarea>
-                    <p class="content-list" style="text-align: center;"><img src="./img/barcode.png" class="content-barcode"></p>
+                    <p class="content-list" style="text-align: center;"><img src="./img/basic/barcode.png" class="content-barcode"></p>
                 </div>
             </div>
             <div class="main_footer">
