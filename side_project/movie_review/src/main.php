@@ -38,6 +38,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="icon" href="./img/basic/slate.png">
     <script src="https://kit.fontawesome.com/f82e475176.js" crossorigin="anonymous"></script>
     <title>메인 페이지</title>
 </head>
@@ -55,10 +56,10 @@
             </div>
             <div class="list">
                 <?php foreach($result as $item) { ?>
-                    <div class="main-page_poster">
-                        <img src="<?php echo $item["img"] ?>" class="box-size">
+
+                    <div class="box-size main-page_poster" style="background-image: url('<?php echo $item["img"] ?>');">
                         <div class="img_display">
-                            <div class="box-size box_hover_content" onclick="location.href='./detail.php?id=<?php echo $item['id'] ?>'">
+                            <div class="box-size box_hover_content" onclick="location.href='./detail.php?id=<?php echo $item['id'] ?>&page=<?php echo $page ?>'">
                                 <h2><?php echo $item["title"] ?></h2>
                                 <p class="star-group">
                                     <?php echo print_stars($item) ?>

@@ -2,28 +2,30 @@
     text-align: right;
 }
 
-.main-page_poster {
-    position: relative;
-}
-
 .box-size {
     width: 200px;
     height: 300px;
+}
+
+.main-page_poster {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .img_display {
     display: none;
 }
 
-img:hover + .img_display {
+.main-page_poster:hover .img_display {
     display: block;
+    cursor: pointer;
 }
 
 .box_hover_content {
-    position: absolute;
-    top: 0;
     background-color: #000;
     opacity: 0.8;
+    pointer-events: auto;
     color: #fff;
     padding: 20px;
     display: flex;

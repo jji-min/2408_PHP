@@ -115,3 +115,115 @@ function my_reviews_select_id(PDO $conn, array $arr_param) {
 
     return $stmt->fetch();
 }
+
+/**
+ * 게시글 좋아요 수 관리
+ */
+function my_reviews_update_good(PDO $conn, array $arr_param) {
+    $sql =
+        " UPDATE reviews "
+        ." SET "
+        ."      good = :good++ "
+        ." WHERE "
+        ."      id = :id "
+    ;
+
+    $stmt = $conn->prepare($sql);
+    $result_flg = $stmt->execute($arr_param);
+
+    if(!$result_flg) {
+        throw new Exception("쿼리 실행 실패");
+    }
+
+    if($stmt->rowCount() !== 1) {
+        throw new Exception("Update Count 이상");
+    }
+
+    return true;
+}
+
+/**
+ * reviews 테이블 update - 이미지 있을 때
+ */
+function my_reviews_update_id(PDO $conn, array $arr_param) {
+    $sql = 
+        " UPDATE reviews "
+        ." SET "
+        ."      title = :title "
+        ."      ,rating = :rating "
+        ."      ,review = :review "
+        ."      ,img = :img "
+        ."      ,updated_at = NOW() "
+        ."  WHERE "
+        ."      id = :id "
+    ;
+
+    $stmt = $conn->prepare($sql);
+    $result_flg = $stmt->execute($arr_param);
+
+    if(!$result_flg) {
+        throw new Exception("쿼리 실행 실패");
+    }
+
+    if($stmt->rowCount() !== 1) {
+        throw new Exception("Update Count 이상");
+    }
+
+    return true;
+}
+
+/**
+ * reviews 테이블 update - 이미지 없을 때
+ */
+function my_reviews_noimg_update_id(PDO $conn, array $arr_param) {
+    $sql = 
+        " UPDATE reviews "
+        ." SET "
+        ."      title = :title "
+        ."      ,rating = :rating "
+        ."      ,review = :review "
+        ."      ,updated_at = NOW() "
+        ."  WHERE "
+        ."      id = :id "
+    ;
+
+    $stmt = $conn->prepare($sql);
+    $result_flg = $stmt->execute($arr_param);
+
+    if(!$result_flg) {
+        throw new Exception("쿼리 실행 실패");
+    }
+
+    if($stmt->rowCount() !== 1) {
+        throw new Exception("Update Count 이상");
+    }
+
+    return true;
+}
+
+/**
+ * reviews 테이블 delete
+ */
+function my_reviews_delete_id(PDO $conn, array $arr_param) {
+    $sql =
+        " UPDATE reviews "
+        ." SET "
+        ."      updated_at = NOW() "
+        ."      ,deleted_at = NOW() "
+        ." WHERE "
+        ."      id = :id "
+    ;
+
+    $stmt = $conn->prepare($sql);
+    $result_flg = $stmt->execute($arr_param);
+    
+    if(!$result_flg) {
+        throw new Exception("쿼리 실행 실패");
+    }
+
+    if($stmt->rowCount() !== 1) {
+        throw new Exception("Update Count 이상");
+    }
+
+    return true;
+}

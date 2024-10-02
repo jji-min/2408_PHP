@@ -9,6 +9,8 @@
         try {
             $conn = my_db_conn();
 
+            $file = $_FILES["file"];
+
             $conn->beginTransaction();
 
             // 이미지 이름 중복을 방지 하기 위해 랜덤이름으로 이미지를 저장함
@@ -53,6 +55,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/insert.css">
+    <link rel="icon" href="./img/basic/slate.png">
     <title>작성 페이지</title>
 </head>
 <body>
@@ -64,7 +67,7 @@
             <form action="./insert.php" method="post" enctype="multipart/form-data">
                 <div class="list">
                     <div class="insert-page_poster">
-                        <input type="file" name="file" id="file">
+                        <input type="file" name="file" id="file" required>
                         <img id="poster_img" class="insert-page_poster_img">
                     </div>
                     <div class="content-box">
@@ -82,5 +85,5 @@
         </main>
     </div>
 </body>
-<script type="text/javascript" src="insert.js"></script>
+<script type="text/javascript" src="show_poster_img.js"></script>
 </html>

@@ -8,9 +8,10 @@
 }
 /* ------------------------ */
 
-.insert-page_img {
+.detail-page_img {
     width: 300px;
     height: 400px;
+    margin: auto 0;
 }
 
 .rating {
@@ -20,4 +21,25 @@
 
 .review {
     min-height: 200px;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn_thumbs {
+    background-color: #000;
+    border: 2px solid #FAF5E2;
+    border-radius: 10px;
+    min-width: 100px;
+    padding: 5px;
+    color: #FAF5E2;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn_thumbs:active {
+    background-color: #FAF5E2;
+    color: #000;
 }
