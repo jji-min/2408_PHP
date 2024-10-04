@@ -2,6 +2,8 @@
 
 .start-page {
     background-color: #070103;
+    width: 1000px;
+    margin: 0 auto;
     height: 600px;
     padding: 0;
     position: relative;
@@ -56,12 +58,3 @@
         opacity: 1;
     }
 }
-
-
-/* .open_btn:hover ~ .open_box {
-    animation: open 8s ease-in-out;
-} */
-
- /* .start-page_btn:visited {
-    color: #fff;
-} */

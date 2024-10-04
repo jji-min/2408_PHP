@@ -123,7 +123,33 @@ function my_reviews_update_good(PDO $conn, array $arr_param) {
     $sql =
         " UPDATE reviews "
         ." SET "
-        ."      good = :good++ "
+        ."      good = :good "
+        ." WHERE "
+        ."      id = :id "
+    ;
+
+    $stmt = $conn->prepare($sql);
+    $result_flg = $stmt->execute($arr_param);
+
+    if(!$result_flg) {
+        throw new Exception("쿼리 실행 실패");
+    }
+
+    if($stmt->rowCount() !== 1) {
+        throw new Exception("Update Count 이상");
+    }
+
+    return true;
+}
+
+/**
+ * 게시글 싫어요 수 관리
+ */
+function my_reviews_update_bad(PDO $conn, array $arr_param) {
+    $sql =
+        " UPDATE reviews "
+        ." SET "
+        ."      bad = :bad "
         ." WHERE "
         ."      id = :id "
     ;

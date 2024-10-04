@@ -13,7 +13,9 @@ a:visited {
 }
 
 .container {
-    background-color: #520F07;
+    background-image: url('../img/basic/curtain.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
     width: 1000px;
     margin: 0 auto;
     padding: 50px;
@@ -27,7 +29,7 @@ header {
 
 /* main */
 main {
-    background-color: #070103;
+    background-color: #070103a8;
     width: 800px;
     margin: 0 auto;
     padding: 30px;
