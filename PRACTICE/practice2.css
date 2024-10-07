@@ -17,28 +17,32 @@
     height: 500px;
 }
 
-.start-page_btn {
-    position: absolute;
-    top: 45%;
-    left: 46.5%;
-}
-
 a:hover ~ .left-side{
-    animation: open 5s ease-in-out backwards;
+    animation: open-left 5s ease-in-out backwards;
     /* transform: translateX(-100%); */
 }
 
 a:hover ~ .right-side {
-    /* animation: open 5s ease-in-out; */
-    transform: translateX(100%);
+    animation: open-right 5s ease-in-out;
+    /* transform: translateX(100%); */
 }
 
-@keyframes open {
+@keyframes open-left {
     from {
         width: 400px;
     }
     to {
         transform: translateX(-100%);
+        width: 100px;
+    }
+}
+
+@keyframes open-right {
+    from {
+        width: 400px;
+    }
+    to {
+        transform: translateX(100%);
         width: 100px;
     }
 }

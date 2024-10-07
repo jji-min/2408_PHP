@@ -42,7 +42,7 @@ try {
 </head>
 <body>
     <?php 
-        require_once(MY_PATH_ROOT."header.php");
+        require_once(MY_PATH_HEADER);
     ?>
 
     <main>
@@ -66,6 +66,15 @@ try {
                 <div class="box-title">작성일자</div>
                 <div class="box-content"><?php echo $result["created_at"] ?></div>
             </div>
+
+            <?php if(!is_null($result["img"])) { ?>
+            <div class="box">
+                <div class="box-title">이미지</div>
+                <div class="box-content">
+                    <img class="box-content" src="<?php echo $result["img"] ?>" alt="">
+                </div>
+            </div>
+            <?php } ?>
         </div>
 
         <div class="main-footer">

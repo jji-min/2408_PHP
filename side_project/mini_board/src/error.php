@@ -12,7 +12,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/config.php");
 </head>
 <body>
     <?php 
-        require_once(MY_PATH_ROOT."header.php");
+        require_once(MY_PATH_HEADER);
     ?>
     <main>
         <p>에러가 발생했습니다.</p>
