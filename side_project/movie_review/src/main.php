@@ -71,13 +71,13 @@
             </div>
             <div class="main_footer">
                 <?php if($page !== 1) { ?>
-                    <a href="./main.php?page=<?php echo $prev_page_number ?>"><button class="btn-style"><</button></a>
+                    <a href="./main.php?page=<?php echo $prev_page_number ?>"><button class="btn-style"><i class="fa-solid fa-play fa-rotate-180"></i></button></a>
                 <?php } ?>
                 <?php for($i = $start_page_button_number; $i <= $end_page_button_number; $i++) { ?>
                     <a href="./main.php?page=<?php echo $i ?>"><button class="btn-style <?php echo $page === $i ? "btn-selected" : "" ?>"><?php echo $i ?></button></a>
                 <?php } ?>
                 <?php if($page !== $max_page) { ?>
-                    <a href="./main.php?page=<?php echo $next_page_number ?>"><button class="btn-style">></button></a>
+                    <a href="./main.php?page=<?php echo $next_page_number ?>"><button class="btn-style"><i class="fa-solid fa-play"></i></button></a>
                 <?php } ?>
             </div>
         </main>
