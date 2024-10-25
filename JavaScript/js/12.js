@@ -81,3 +81,29 @@ function test4(a, b) {
         return 'a가 더 큼';
     }
 }
+
+// ---------------
+// 즉시 실행 함수
+// ---------------
+const execFnc = (function(a, b) {
+    return a + b;
+})(5, 6);
+// 정의되면서 동시에 실행시킴
+// 딱 한번만 호출됨
+
+// ---------------
+// 콜백 함수
+// 다른 함수의 파라미터로 전달되어 특정 조건에 따라 호출되는 함수
+// ---------------
+function myCallBack() {
+    console.log('myCallBack');
+}
+
+function myChkPrint(callBack, flg) {
+    if(flg) {
+        callBack();
+    }
+}
+
+myChkPrint(myCallBack, true);
+myChkPrint(() => 'ttt', true);
