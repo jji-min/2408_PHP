@@ -1,0 +1,26 @@
+.box-hidden {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+}
+
+.red {
+    background-color: red;
+}
+.orange {
+    background-color: orange;
+}
+.yellow {
+    background-color: yellow;
+}
+.green {
+    background-color: green;
+}
+.blue {
+    background-color: blue;
+}
+
+.color-transparent {
+    background-color: transparent;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/40.js" defer></script>
+    <link rel="stylesheet" href="../css/40.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">타이틀</h1>
+    <!-- <button type="button" onclick="changeColor()">색상변경</button> -->
+    <!-- <button type="button" onclick="titleColor()">색상변경</button> -->
+    <button type="button" onclick="changeTitle()">색상변경</button>
+    <br>
+    <!-- 인라인 이벤트 -->
+    <!-- 간단한 함수 호출할 때만 사용하고 되도록이면 사용하지 않는게 좋음 -->
+    <button type="button" onclick="inlineEventBtn()">인라인 이벤트 버튼</button>
+    <br>
+    <!-- addEventListener -->
+    <button id="btn1" type="button">이벤트 리스너</button>
+    <br>
+    <button id="btn_toggle" type="button">토글버튼</button>
+    <p id="naver">네이버로</p>
+    <h2>테스트용</h2>
+    <h3>이벤트 객체 테스트</h3>
+    <button id="btn_modal" type="button">모달 오픈</button>
+
+    <!-- modal -->
+    <div class="modal-container display-none">
+        <div class="modal-item">
+            <p>모달모달</p>
+            <button id="modal_close" type="button">닫기</button>
+        </div>
+    </div>
+</body>
+</html>
