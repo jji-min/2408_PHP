@@ -1,4 +1,4 @@
-.box-hidden {
+/* .box-hidden {
     position: absolute;
     width: 100px;
     height: 100px;
@@ -22,5 +22,27 @@
 }
 
 .color-transparent {
-    background-color: transparent;
+    background-color: transparent;    
+} */
+/* visibility: hidden으로 사라지게 하는것이 아니라 배경색으로 안보이게 해야함 */
+
+/* ------------------------------ */
+.container {
+    width: 100px;
+    height: 100px;
+    /* background-color: #c368ff; */
+    position: absolute;
+    top: 300px;
+    left: 300px;
+}
+
+.box {
+    width: 70px;
+    height: 70px;
+    margin: 15px;
+    /* background-color: #1c6bff; */
+}
+
+.busted {
+    background-color: aqua;
 }
