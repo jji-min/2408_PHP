@@ -83,6 +83,9 @@ setInterval(() => {
 
 const K1 = '(ヘ･_･)ヘ┳━┳';
 const K2 = '(╯°□°）╯︵ ┻━┻';
+// const K2 = '(╯°□°）╯︵ <span style="color:brown">┻━┻</span>';
+// span으로 컬러주고 innerHTML로 넣어주면 색깔도 바꿀 수 있음
+
 (() => {
     const TEST = document.createElement('h2');
     TEST.textContent = K1;
