@@ -22,4 +22,27 @@ class User extends Model {
             exit;
         }
     }
+
+    public function registUserInfo($paramArr) {
+        try {
+            $sql = 
+                ' INSERT INTO users( '
+                .'      u_email '
+                .'      ,u_password '
+                .'      ,u_name '
+                .' ) '
+                .' VALUES( '
+                .'      :u_email '
+                .'      ,:u_password '
+                .'      ,:u_name '
+                .' ) '
+            ;
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute($paramArr);
+            return $stmt->rowCount();
+        } catch (Throwable $th) {
+            echo 'User->registUserInfo(), '.$th->getMessage();
+            exit;
+        }
+    }
 }

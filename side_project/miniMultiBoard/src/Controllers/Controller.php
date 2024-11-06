@@ -2,6 +2,7 @@
 // 부모
 namespace Controllers;
 
+use Lib\Auth;
 use Models\BoardsCategory;
 
 class Controller {
@@ -14,7 +15,9 @@ class Controller {
         if(session_status() === PHP_SESSION_NONE) { // 세션이 시작되어있는지(2) 아닌지(1), 5.4버전 이후부터 가능
             session_start();
         }
+
         // 유저 로그인 및 권한체크
+        Auth::chkAuthorization();
 
         // 헤더 드롭다운 리스트 획득
         $boardsCategoryModel = new BoardsCategory();
