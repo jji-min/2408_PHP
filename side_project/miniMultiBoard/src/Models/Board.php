@@ -27,25 +27,6 @@ class Board extends Model {
         }
     }
 
-    // public function getBoardDetail($paramArr) {
-    //     try {
-    //         $sql = 
-    //             ' SELECT * '
-    //             .' FROM boards '
-    //             .' WHERE '
-    //             .'      b_id = :b_id '
-    //             .' AND deleted_at IS NULL '
-    //         ;
-
-    //         $stmt = $this->conn->prepare($sql);
-    //         $stmt->execute($paramArr);
-    //         return $stmt->fetch();
-    //     } catch(Throwable $th) {
-    //         echo 'Board->getBoardDetail(), '.$th->getMessage();
-    //         exit;
-    //     }
-    // }
-
     public function getBoardDetail($paramArr) {
         try {
             $sql = 
@@ -69,6 +50,34 @@ class Board extends Model {
             return $stmt->fetch();
         } catch(Throwable $th) {
             echo 'Board->getBoardDetail(), '.$th->getMessage();
+            exit;
+        }
+    }
+
+    public function insertBoard(array $paramArr) {
+        try {
+            $sql = 
+            ' INSERT INTO boards ( '
+            .'      u_id '
+            .'      ,bc_type '
+            .'      ,b_title '
+            .'      ,b_content '
+            .'      ,b_img '
+            .' ) '
+            .' VALUES( '
+            .'      :u_id '
+            .'      ,:bc_type '
+            .'      ,:b_title '
+            .'      ,:b_content '
+            .'      ,:b_img '
+            .' ) '
+            ;
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute($paramArr);
+            return $stmt->rowCount();
+        } catch (Throwable $th) {
+            echo 'Board->insertBoard(), '.$th->getMessage();
             exit;
         }
     }

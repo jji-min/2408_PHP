@@ -72,6 +72,7 @@ class BoardController extends Controller {
 
     // 작성 페이지로 이동
     public function create() {
+        $this->boardType = $_GET['bc_type'];
         return 'insert.php';
     }
 
@@ -81,9 +82,26 @@ class BoardController extends Controller {
             'b_title' => $_POST['b_title']
             ,'b_content' => $_POST['b_content']
             ,'b_img' => ''
+            ,'bc_type' => $_POST['bc_type']
+            ,'u_id' => $_SESSION['u_id']
         ];
 
         $requestData['b_img'] = $this->saveImg($_FILES['file']);
+
+        $boardModel = new Board();
+        $boardModel->beginTransaction();
+        $resultBoardInsert = $boardModel->insertBoard($requestData);
+
+        if($resultBoardInsert !== 1) {
+            $boardModel->rollBack();
+            $this->arrErrorMsg[] = '게시글 작성 실패';
+            $this->boardType = $requestData['bc_type'];
+            return 'insert.php';
+        }
+
+        $boardModel->commit();
+
+        return 'Location: /boards?bc_type='.$requestData['bc_type'];
     }
 
     private function saveImg($file) {
