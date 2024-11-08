@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\QueryController;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\TestController;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -179,3 +181,71 @@ Route::prefix('/users')->group(function() {
 // 같은 기능을 하는 라우터라는거 인식
 // 예를 들어, '/boards로 시작하면 게시판과 관련된 기능을 한다는 것을 알 수 있음
 // prefix -> 공통된 접두사 지정
+
+
+// ------------------
+// 컨트롤러 연결
+// ------------------
+// 커맨드로 컨트롤러 생성 : php artisan make:controller 컨트롤러명
+Route::get('/test', [TestController::class, 'index']); // [호출할 컨트롤러, action명], 문법이니 외울것
+
+// Route::get('/task', [TaskController::class, 'index']);
+// Route::get('/task/create', [TaskController::class, 'create']);
+// Route::post('/task', [TaskController::class, 'store']);
+// Route::get('/task/{id}', [TaskController::class, 'show']);
+// Route::get('/task/{id}/edit', [TaskController::class, 'edit']);
+// Route::put('/task/{id}', [TaskController::class, 'update']);
+// Route::delete('/task/{id}', [TaskController::class, 'destroy']);
+
+// Route::resource('/task', TaskController::class); // 라우트가 자동으로 만들어줌
+// GET|HEAD        task ............................................................................................................................................................. task.index › TaskController@index  
+// POST            task ............................................................................................................................................................. task.store › TaskController@store  
+// GET|HEAD        task/create .................................................................................................................................................... task.create › TaskController@create  
+// GET|HEAD        task/{task} ........................................................................................................................................................ task.show › TaskController@show  
+// PUT|PATCH       task/{task} .................................................................................................................................................... task.update › TaskController@update  
+// DELETE          task/{task} .................................................................................................................................................. task.destroy › TaskController@destroy  
+// GET|HEAD        task/{task}/edit ................................................................................................................................................... task.edit › TaskController@edit  
+
+// only([]) : 사용할 액션 지정
+// Route::resource('/task', TaskController::class)->only(['index', 'create']); // 필요한 것만 지정해줄 수 있음
+// GET|HEAD        task ............................................................................................................................................................. task.index › TaskController@index  
+// GET|HEAD        task/create .................................................................................................................................................... task.create › TaskController@create  
+
+// except([])
+Route::resource('/task', TaskController::class)->except(['index', 'create']); // 사용하지 않을 액션 지정
+// create가 실행되지는 않지만 task/create를 치면 create를 파라미터로 인식하고 show가 실행됨
+// POST            task ............................................................................................................................................................. task.store › TaskController@store  
+// GET|HEAD        task/{task} ........................................................................................................................................................ task.show › TaskController@show  
+// PUT|PATCH       task/{task} .................................................................................................................................................... task.update › TaskController@update  
+// DELETE          task/{task} .................................................................................................................................................. task.destroy › TaskController@destroy  
+// GET|HEAD        task/{task}/edit ................................................................................................................................................... task.edit › TaskController@edit  
+
+
+// --------------------
+// 블레이드 템플릿용
+// --------------------
+Route::get('/edu', function() {
+    return view('edu')
+            ->with('data', ['name' => '홍길동', 'content' => '<script>alert("tt")</script>']);
+});
+
+Route::get('/boards', function() {
+    return view('board');
+});
+
+Route::get('/extends', function() {
+    $result = [
+        ['id' => 1, 'name' => '홍길동', 'gender' => 'M']
+        ,['id' => 2, 'name' => '갑순이', 'gender' => 'F']
+        ,['id' => 3, 'name' => '갑돌이', 'gender' => 'M']
+    ];
+
+    return view('extends')
+            ->with('data', $result)
+            ->with('data2', []);
+});
+
+// ------------------------
+// 쿼리빌더 연습용
+// ------------------------
+Route::get('/query', [QueryController::class, 'index']);
