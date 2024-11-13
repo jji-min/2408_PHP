@@ -28,7 +28,7 @@ class BoardFactory extends Factory
         ];
         
         $userInfo = User::inRandomOrder()->first();
-        $date = $this->faker->dateTimeBetween($userInfo->create_at);
+        $date = $this->faker->dateTimeBetween($userInfo->created_at);
         // 해당 회원이 가입한 날짜 이후의 날짜가 입력됨
 
         return [

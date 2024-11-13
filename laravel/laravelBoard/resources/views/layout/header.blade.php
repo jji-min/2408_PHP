@@ -17,7 +17,7 @@
                         </ul>
                     </li>
                 </ul>
-                <a href="./login.html" class="navbar-nav nav-link text-light" role="button">로그아웃</a>
+                <a href="{{ route('logout') }}" class="navbar-nav nav-link text-light" role="button">로그아웃</a>
             </div>
         </div>
     </nav>
