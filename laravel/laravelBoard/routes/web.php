@@ -25,4 +25,10 @@ Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 // 게시판 관련
-Route::resource('/boards', BoardController::class)->except(['update', 'edit']);
+Route::middleware('auth')->resource('/boards', BoardController::class)->except(['update', 'edit']);
+
+// 회원가입 관련
+// Route::get('/regist', [UserController::class, 'goRegist'])->name('goRegist');
+// Route::post('/regist', [UserController::class, 'regist'])->name('regist');
+Route::get('/registration', [UserController::class, 'registration'])->name('get.registration'); // 명사로 쓰는게 좋음
+Route::post('/registration', [UserController::class, 'storeRegistration'])->name('post.registration');

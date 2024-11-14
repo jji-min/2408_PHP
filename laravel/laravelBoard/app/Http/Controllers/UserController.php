@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Throwable;
 
 class UserController extends Controller
 {
@@ -76,6 +78,100 @@ class UserController extends Controller
         Session::regenerateToken(); // CSRF 토큰 재발급
 
         // 로그아웃 만들 때 위의 세줄은 반드시 적어야함!
+
+        return redirect()->route('goLogin');
+    }
+
+    /**
+     * 회원가입 페이지로 이동 처리
+     */
+    // public function goRegist() {
+    //     return view('regist');
+    // }
+    public function registration() {
+        return view('registration');
+    }
+
+    /**
+     * 회원가입 처리
+     */
+    // public function regist(Request $request) {
+    //     $validator = Validator::make(
+    //         $request->only('u_email', 'u_password', 'u_password_chk', 'u_name')
+    //         ,[
+    //             'u_email' => ['required', 'email', 'unique:users,u_email']
+    //             ,'u_password' => ['required', 'between:6,20', 'regex:/^[a-zA-Z0-9!@]+$/']
+    //             ,'u_password_chk' => ['required', 'same:u_password']
+    //             ,'u_name' => ['required', 'max:50']
+    //         ]
+    //     );
+
+    //     if($validator->fails()) {
+    //         return redirect()
+    //                 ->route('goRegist')
+    //                 ->withErrors($validator->errors());
+    //     }
+
+    //     // DB에 저장
+    //     DB::beginTransaction();
+
+    //     try {
+    //         User::create([
+    //             'u_email' => $request->u_email
+    //             ,'u_password' => Hash::make($request->u_password)
+    //             ,'u_name' => $request->u_name
+    //         ]);
+    //         DB::commit();
+    //     } catch(Throwable $th) {
+    //         DB::rollBack();
+    //     }
+        
+    //     return redirect()->route('goLogin');
+    // }
+    public function storeRegistration(Request $request) {
+         // 유효성 체크
+        $validator = Validator::make(
+            $request->only('u_email', 'u_password', 'u_password_chk', 'u_name')
+            ,[
+                'u_email' => ['required', 'email', 'unique:users,u_email']
+                ,'u_password' => ['required', 'between:6,20', 'regex:/^[a-zA-Z0-9!@]+$/']
+                ,'u_password_chk' => ['same:u_password'] // 비밀번호 확인 입력안하면 어차피 다르다고 나오기 때문에, u_password와 똑같은지만 체크하면 됨
+                ,'u_name' => ['required', 'between:2,50', 'regex:/^[가-힣]+$/u'] // u는 유니코드의 약자, u를 붙여야 한글로 제대로 인식
+            ]
+            // 룰(규칙)
+
+            // 파라미터 전부 배열로 전달하면 됨
+        );
+
+        if($validator->fails()) { // fails() : 유효성 체크를 했을 때 실패하면 true
+            return redirect()
+                    ->route('get.registration')
+                    ->withErrors($validator->errors())
+                    ->withInput();
+        }
+
+
+        // 회원 정보 삽입
+        // $user = new User();
+        // $user->u_email = $request->u_email;
+        // $user->u_password = Hash::make($request->u_email);
+        // $user->u_name = $request->u_name;
+        // $user->save();
+
+        try {
+            DB::beginTransaction();
+    
+            User::create([
+                'u_email' => $request->u_email
+                ,'u_password' => Hash::make($request->u_password)
+                ,'u_name' => $request->u_name
+            ]);
+            DB::commit();
+        } catch(Throwable $th) {
+            DB::rollBack();
+            // transaction이 실행되어있어야 롤백처리함
+            // 그래서 inTransation 체크할 필요 없음
+        }
 
         return redirect()->route('goLogin');
     }

@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Board;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
+use Throwable;
 
 class BoardController extends Controller
 {
@@ -32,7 +35,7 @@ class BoardController extends Controller
      */
     public function create() // 작성페이지로 이동
     {
-        //
+        return view('insert');
     }
 
     /**
@@ -43,7 +46,41 @@ class BoardController extends Controller
      */
     public function store(Request $request) // 작성 처리
     {
-        //
+        // 유효성 체크
+        $validator = Validator::make(
+            $request->only('b_title', 'b_content', 'file')
+            ,[
+                'b_title' => ['required', 'max:50']
+                ,'b_content' => ['required', 'max:200']
+                ,'file' => ['required', 'image']
+            ]
+        );
+
+        if($validator->fails()) {
+            return redirect()
+                    ->route('boards.create')
+                    ->withErrors($validator->errors());
+        }
+
+        // 데이터 삽입
+        try {
+            DB::beginTransaction();
+    
+            Board::create([
+                'u_id'
+                ,'bc_type'
+                ,'b_title' => $request->b_title
+                ,'b_content' => $request->b_content
+                ,'b_img'
+            ]);
+            DB::commit();
+        } catch(Throwable $th) {
+            DB::rollBack();
+            // transaction이 실행되어있어야 롤백처리함
+            // 그래서 inTransation 체크할 필요 없음
+        }
+
+        return redirect()->route('boards.index');
     }
 
     /**
