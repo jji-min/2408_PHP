@@ -2,7 +2,7 @@
     <!-- 리스트 -->
     <div class="board-list-box">
         <div @click="openModal" class="item">
-            <img src="/img/mang.png" alt="">
+            <img src="/img/mang1.png" alt="">
         </div>
         <div @click="openModal" class="item">
             <img src="/img/mang2.png" alt="">
