@@ -18,7 +18,7 @@
     <!-- 상세 모달 -->
     <div v-show="modalFlg" class="board-detail-box">
         <div class="item">
-            <img src="/img/mang.png">
+            <img src="/img/mang1.png">
             <hr>
             <p>내용내용</p>
             <hr>
