@@ -1,4 +1,5 @@
-import axios from "axios";
+// import axios from 'axios';
+import axios from "../../axios";
 import router from '../../router';
 
 export default {
@@ -40,14 +41,15 @@ export default {
             const url = '/api/login';
             const data = JSON.stringify(userInfo);
             // 객체를 json 형태로 serializing -> 문자열로 나옴
-            const config = {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-                // 기존의 content-type을 json으로 바꿈
-            }
+            // const config = {
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     }
+            //     // 기존의 content-type을 json으로 바꿈
+            // }
 
-            axios.post(url, data, config)
+            // axios.post(url, data, config)
+            axios.post(url, data)
             .then(response => {
                 // console.log(response);
                 // 토큰 저장
@@ -61,7 +63,7 @@ export default {
                 context.commit('setUserInfo', response.data.data);
 
                 // 보드 리스트로 이동
-                router.replace('/board');
+                router.replace('/boards');
 
             })
             .catch(error => {
@@ -97,15 +99,31 @@ export default {
          * @param {*} context
          */
         logout(context) {
-            // TODO : 백앤드 처리 추가
+            const url = '/api/logout';
+            const config = {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
+                    // 되도록 노출되지 않도록
+                    // 파라미터가 아닌 헤더에 담음
+                }
+            };
 
-            localStorage.clear();// 로컬스토리지 비우기
-
-            // state 초기화
-            context.commit('setAuthFlg', false);
-            context.commit('setUserInfo', {});
-
-            router.replace('/login');
+            axios.post(url, null, config)
+            .then(response => {
+                alert('로그아웃 완료');
+            })
+            .catch(error => {
+                alert('문제가 발생하여 로그아웃 처리');
+            })
+            .finally(() => {
+                localStorage.clear();// 로컬스토리지 비우기
+    
+                // state 초기화
+                context.commit('setAuthFlg', false);
+                context.commit('setUserInfo', {});
+    
+                router.replace('/login');
+            });
         },
     },
     getters: {

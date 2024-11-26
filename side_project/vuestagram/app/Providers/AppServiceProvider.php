@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Exceptions\MyAuthException;
 use App\Utils\MyEncrypt;
 use App\Utils\MyToken;
 use Illuminate\Support\ServiceProvider;
@@ -20,6 +21,9 @@ class AppServiceProvider extends ServiceProvider
         });
         $this->app->bind('MyToken', function() {
             return new MyToken();
+        });
+        $this->app->bind('MyAuthException', function() {
+            return new MyAuthException();
         });
     }
 

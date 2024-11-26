@@ -70,6 +70,15 @@ class Handler extends ExceptionHandler
         }
 
         $errInfo = $this->context()[$code];
+        // handler의 context
+
+        // 커스텀 Exception 인스턴스 확인
+        if($th instanceof MyAuthException) {
+            // 같은 위치에 있기 때문에 use 안적어줘도 됨
+            $code = $th->getMessage();
+            $errInfo = $th->context()[$code];
+            // MyAuthException의 context
+        }
 
         // Response Data 생성
         $responseData = [

@@ -194,6 +194,7 @@ return [
         // 커스텀 파사드 등록하는 곳
         'MyEncrypt' => App\Facades\MyEncryptFacade::class,
         'MyToken' => App\Facades\MyTokenFacade::class,
+        'MyAuthException' => App\Facades\MyAuthExceptionFacade::class,
     ])->toArray(),
 
 ];

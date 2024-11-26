@@ -63,5 +63,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        // 커스텀 미들웨어
+        // 미들웨어는 이름 연결할 때 단어 사이에 '.' 넣음
+        'my.auth' => \App\Http\Middleware\MyAuth::class,
     ];
 }
