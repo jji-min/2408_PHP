@@ -23,6 +23,10 @@ export default {
         setUserInfo(state, userInfo) {
             state.userInfo = userInfo;
         },
+        setUserInfoBoardsCount(state) {
+            state.userInfo.boards_count++;
+            localStorage.setItem('userInfo', JSON.stringify(state.userInfo));
+        },
     },
     actions: {
         // --------------
