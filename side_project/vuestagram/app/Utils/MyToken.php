@@ -53,7 +53,7 @@ class MyToken {
      * @return bool true
      */
     public function chkToken(string|null $token) {
-        Log::debug("********** chkToken Start **********");
+        // Log::debug("********** chkToken Start **********");
         // 토큰 존재 유무 체크
         // barerToken이 없으면 null로 옴
         if(empty($token)) {
@@ -72,7 +72,7 @@ class MyToken {
             throw new MyAuthException('E21');
         }
 
-        Log::debug("********** chkToken End **********");
+        // Log::debug("********** chkToken End **********");
         return true;
     }
 

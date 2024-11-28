@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BoardController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+Route::post('/registration', [UserController::class, 'store'])->name('user.store');
 // api에 작성한 라우트는 자동으로 앞에 '/api'가 붙음
 // Route::middleware('my.auth')->post('/logout', [AuthController::class, 'logout'])->name('post.logout');
 
@@ -24,6 +26,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 Route::middleware('my.auth')->group(function() {
     // 인증 관련
     Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+    Route::post('/reissue', [AuthController::class, 'reissue'])->name('auth.reissue');
     
     // 게시글 관련
     Route::get('/boards', [BoardController::class, 'index'])->name('boards.index');

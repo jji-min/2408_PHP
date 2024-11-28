@@ -20,8 +20,16 @@ class UserRequest extends FormRequest
             ,'password' => ['required', 'between:5,20', 'regex:/^[0-9a-zA-Z!@]+$/']
         ];
 
-        if($this->routeIs('post.login')) {
+        // 로그인
+        if($this->routeIs('auth.login')) {
             $rules['account'][] = 'exists:users,account';
+        } else if($this->routeIs('user.store')) {
+            // 회원가입
+            $rules['account'][] = 'unique:users,account';
+            $rules['password_chk'] = ['same:password'];
+            $rules['name'] = ['required', 'between:1,20', 'regex:/^[가-힣]+$/u']; // regex의 마지막 u는 유니코드로 인식시키겠다는 뜻
+            $rules['gender'] = ['required', 'regex:/^[0-1]{1}$/']; // 한글자만 올 수 있음
+            $rules['profile'] = ['required', 'image']; // min,max 주면 용량도 제한할 수 있음, max:2하면 메가바이트로 체크됨
         }
 
         return $rules;

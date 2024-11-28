@@ -19,7 +19,7 @@ class MyAuth
     public function handle(Request $request, Closure $next)
     {
         // 미들웨어 호출되면 자동으로 실행되는 메소드
-        Log::debug('MyAuth : '.$request->bearerToken());
+        // Log::debug('MyAuth : '.$request->bearerToken());
 
         MyToken::chkToken($request->bearerToken());
 

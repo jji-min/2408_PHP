@@ -49,7 +49,7 @@ const boardScrollEvent = () => {
         const nowHeight = window.scrollY; // 현재 스크롤 위치
         const viewHeight = docHeight - winHeight; // 끝까지 스크롤 했을 때 Y축 위치
         
-        console.log(viewHeight, nowHeight);
+        // console.log(viewHeight, nowHeight);
         if(viewHeight <= nowHeight) {
             store.dispatch('board/boardListPagination');
         }
