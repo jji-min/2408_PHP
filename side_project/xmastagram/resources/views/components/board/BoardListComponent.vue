@@ -2,16 +2,16 @@
     <!-- 리스트 -->
     <div class="board-list-box">
         <div @click="openModal" class="item">
-            <img src="img/santa.jpg">
+            <img src="img/xmas1.jpg">
         </div>
         <div @click="openModal" class="item">
-            <img src="img/tree.jpg">
+            <img src="img/xmas2.jpg">
         </div>
         <div @click="openModal" class="item">
-            <img src="img/ru.jpg">
+            <img src="img/xmas3.jpg">
         </div>
         <div @click="openModal" class="item">
-            <img src="img/gift.jpg">
+            <img src="img/xmas4.jpg">
         </div>
     </div>
 
