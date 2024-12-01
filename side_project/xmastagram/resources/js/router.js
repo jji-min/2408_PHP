@@ -6,6 +6,10 @@ import UserRegistrationComponent from '../views/components/user/UserRegistration
 
 const routes = [
     {
+        path: '/',
+        redirect: '/login',
+    },
+    {
         path: '/login',
         component: LoginComponent,
     },
