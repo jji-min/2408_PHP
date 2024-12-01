@@ -2,20 +2,12 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class UserRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return false;
-    }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -23,8 +15,25 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        $rules = [
+            'account' => ['required', 'between:5,20', 'regex:/^[0-9a-zA-Z]+$/']
+            ,'password' => ['required', 'between:5,20', 'regex:/^[0-9a-zA-Z!@]+$/']
         ];
+
+        // 로그인
+        $rules['account'][] = 'exists:user,account';
+
+        return $rules;
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        $response = response()->json([
+            'success' => false,
+            'message' => '유효성 체크 오류',
+            'data' => $validator->errors()
+        ], 422);
+
+        throw new HttpResponseException($response);
     }
 }
