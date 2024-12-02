@@ -29,6 +29,7 @@
         </div>
     </div>
 </template>
+
 <script setup>
 import { ref } from 'vue';
 
@@ -42,6 +43,7 @@ const closeModal = () => {
     modalFlg.value = false;
 }
 </script>
+
 <style>
 @import url('../../../css/boardList.css');
 </style>

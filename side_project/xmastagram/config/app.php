@@ -192,6 +192,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'MyEncrypt' => App\Facades\MyEncryptFacade::class,
+        'MyToken' => App\Facades\MyTokenFacade::class,
+        'MyAuthException' => App\Facades\MyAuthExceptionFacade::class,
     ])->toArray(),
 
 ];

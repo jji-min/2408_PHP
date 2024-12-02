@@ -2,8 +2,10 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Support\Facades\Log;
+use PDOException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -46,6 +48,36 @@ class Handler extends ExceptionHandler
      */
     public function report(Throwable $th) {
         Log::info('Report : '.$th->getMessage());
+    }
+
+    /**
+     * 에러 핸들링 커스텀
+     * 예외 및 에러가 브라우저로 렌더링 되기 전에 호출
+     * 커스텀 HTTP응답을 전달
+     */
+    public function render($request, Throwable $th) {
+        $code = 'E99';
+
+        if($th instanceof AuthenticationException) {
+            $code = 'E01';
+        } else if($th instanceof PDOException) {
+            $code = 'E80';
+        }
+
+        $errInfo = $this->context()[$code];
+
+        if($th instanceof MyAuthException) {
+            $code = $th->getMessage();
+            $errInfo = $th->context()[$code];
+        }
+
+        $responseData = [
+            'success' => false
+            ,'code' => $code
+            ,'msg' => $errInfo['msg']
+        ];
+
+        return response()->json($responseData, $errInfo['status']);
     }
 
     /**

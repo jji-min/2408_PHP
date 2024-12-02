@@ -21,7 +21,7 @@ class UserRequest extends FormRequest
         ];
 
         // 로그인
-        $rules['account'][] = 'exists:user,account';
+        $rules['account'][] = 'exists:users,account';
 
         return $rules;
     }

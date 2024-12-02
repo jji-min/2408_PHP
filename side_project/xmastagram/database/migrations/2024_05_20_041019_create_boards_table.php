@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('boards', function (Blueprint $table) {
-            $table->id();
+            $table->id('board_id');
             $table->bigInteger('user_id')->unsigned();
             $table->string('content', 200);
             $table->string('img', 100);
