@@ -19,6 +19,7 @@ class AuthController extends Controller
     public function login(UserRequest $request) {
         // 유저 정보 획득
         $userInfo = User::where('account', $request->account)
+                    ->withCount('boards')
                     ->first();
         
         // 비밀번호 체크

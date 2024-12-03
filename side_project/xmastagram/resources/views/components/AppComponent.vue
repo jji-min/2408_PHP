@@ -20,7 +20,7 @@
     </header>
 
     <main>
-        <UserInfoComponent v-if="$store.state.user.accessToken" />
+        <UserInfoComponent v-if="$store.state.user.authFlg" />
         <div class="container">
             <router-view></router-view>
         </div>

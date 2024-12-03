@@ -43,7 +43,7 @@ class MyToken {
      * 토큰 유효성 체크
      */
     public function chkToken(string|null $token) {
-        Log::debug("********** chkToken Start **********");
+        // Log::debug("********** chkToken Start **********");
 
         if(empty($token)) {
             throw new MyAuthException('E20');
@@ -60,7 +60,7 @@ class MyToken {
             throw new MyAuthException('E21');
         }
         
-        Log::debug("********** chkToken End **********");
+        // Log::debug("********** chkToken End **********");
         return true;
     }
 
